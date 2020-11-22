@@ -24,4 +24,12 @@ public class GreetingController {
         NameRepository.isRepositoryCalled = false;
         return response;
     }
+
+    @GetMapping("/greeting/custom-key")
+    public GreetingResponse getGreetUsingCustomCacheKey(String name) {
+        String reversedName = greetingService.getReversedNameUsingCustomCacheKey(name);
+        GreetingResponse response = new GreetingResponse(reversedName, !NameRepository.isRepositoryCalled);
+        NameRepository.isRepositoryCalled = false;
+        return response;
+    }
 }
