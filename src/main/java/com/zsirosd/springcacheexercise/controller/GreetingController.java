@@ -32,4 +32,12 @@ public class GreetingController {
         NameRepository.isRepositoryCalled = false;
         return response;
     }
+
+    @GetMapping("/greeting/caffeine")
+    public GreetingResponse getGreetUsingCaffeineCacheManager(String name) {
+        String reversedName = greetingService.getReversedNameUsingCaffeineCacheManager(name);
+        GreetingResponse response = new GreetingResponse(reversedName, !NameRepository.isRepositoryCalled);
+        NameRepository.isRepositoryCalled = false;
+        return response;
+    }
 }
