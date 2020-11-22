@@ -41,7 +41,7 @@ public class CachingConfig {
         return new SimpleKeyGenerator();
     }
 
-    @Bean("customKeyGenerator")
+    @Bean
     public KeyGenerator customKeyGenerator() {
         return new CustomKeyGenerator();
     }
